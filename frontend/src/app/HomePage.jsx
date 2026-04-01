@@ -81,7 +81,7 @@ export default function Home() {
       <section id="features" className="py-16 bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Why Choose Campus connect?
+            Why Choose WebClassroom?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="card p-6">
@@ -243,7 +243,7 @@ export default function Home() {
               Trusted by campus teams
             </p>
             <h2 className="text-3xl font-bold mt-2">
-              Real stories from Campus connect users
+              Real stories from WebClassroom users
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -262,7 +262,7 @@ export default function Home() {
               },
               {
                 quote:
-                  "Switching to Campus connect reduced admin time and kept everyone aligned.",
+                  "Switching to WebClassroom reduced admin time and kept everyone aligned.",
                 name: "Chioma Nwankwo",
                 role: "Faculty Administrator",
               },
@@ -289,8 +289,7 @@ export default function Home() {
             Ready to enhance your educational journey?
           </h2>
           <p className="text-xl mb-14 max-w-2xl mx-auto">
-            Join thousands of students and lecturers already using Campus
-            connect to streamline their educational experience.
+            Join thousands of students and lecturers already using WebClassroom to streamline their educational experience.
           </p>
           <Link
             href="/register"

@@ -22,6 +22,9 @@ export default function AssignmentDetailsPage() {
   const [gradingSubmissionId, setGradingSubmissionId] = useState(null);
   const [gradeData, setGradeData] = useState({ grade: "", remark: "" });
 
+  // File Viewer state
+  const [viewingSubmission, setViewingSubmission] = useState(null);
+
   const fetchData = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
@@ -309,13 +312,12 @@ export default function AssignmentDetailsPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="relative">
-                        <a
-                          href={sub.fileUrl}
-                          target="_blank"
+                        <button
+                          onClick={() => setViewingSubmission(sub)}
                           className="text-indigo-600 hover:text-indigo-900 mr-4"
                         >
                           View
-                        </a>
+                        </button>
 
                         <button
                           onClick={() => {
@@ -347,6 +349,7 @@ export default function AssignmentDetailsPage() {
           <ReportSection assignment={assignment} submissions={submissions} />
         </div>
       )}
+      {/* Grading Modal */}
       {/* Grading Modal */}
       {gradingSubmissionId && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] backdrop-blur-sm p-4">
@@ -412,6 +415,103 @@ export default function AssignmentDetailsPage() {
                   Save Grade
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* File Viewer Modal */}
+      {viewingSubmission && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[1100] backdrop-blur-sm p-4">
+          <div className="bg-white rounded-lg shadow-2xl w-full max-w-5xl h-[85vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
+              <h3 className="text-lg font-bold text-gray-800">
+                Submission: {viewingSubmission.student.name}
+              </h3>
+              <div className="flex items-center gap-4">
+                <a
+                  href={viewingSubmission.fileUrl}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors flex items-center gap-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    />
+                  </svg>
+                  Download File
+                </a>
+                <button
+                  onClick={() => setViewingSubmission(null)}
+                  className="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div className="flex-1 bg-gray-100 p-4 overflow-hidden relative">
+              {viewingSubmission.fileUrl.match(/\.(jpeg|jpg|gif|png)$/i) ? (
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src={viewingSubmission.fileUrl}
+                    alt="Submission"
+                    className="max-w-full max-h-full object-contain shadow-lg rounded"
+                  />
+                </div>
+              ) : viewingSubmission.fileUrl.match(/\.pdf$/i) ? (
+                <iframe
+                  src={viewingSubmission.fileUrl}
+                  className="w-full h-full border-none shadow-lg rounded bg-white"
+                  title="PDF Viewer"
+                ></iframe>
+              ) : (
+                <div className="flex flex-col items-center justify-center h-full text-gray-500">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-16 w-16 mb-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                  <p className="text-lg font-medium">
+                    Preview not available for this file type
+                  </p>
+                  <p className="text-sm mt-2">
+                    Please use the download button above to view the file.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

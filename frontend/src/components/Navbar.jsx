@@ -15,9 +15,9 @@ export default function Navbar() {
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white font-semibold">
-            CC
+            WC
           </span>
-          <span className="text-lg font-semibold">Campus connect</span>
+          <span className="text-lg font-semibold">WebClassroom</span>
         </Link>
         <ul className="flex items-center gap-4 text-sm font-medium text-gray-600">
           {user ? (

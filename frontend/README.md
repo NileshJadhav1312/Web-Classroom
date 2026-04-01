@@ -1,6 +1,6 @@
-# Campus connect: Learning Management System Frontend
+# WebClassroom: Learning Management System Frontend
 
-A modern, responsive frontend for the Learning Management System built with Next.js 14, React, and TypeScript.
+A modern, responsive frontend for the Learning Management System built with Next.js 15, React, and Tailwind CSS.
 
 ## Features
 

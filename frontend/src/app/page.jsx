@@ -81,7 +81,7 @@ export default function Home() {
       <section id="features" className="py-16 bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Why Choose Campus connect?
+            Why Choose WebClassroom?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="card p-6">
@@ -169,10 +169,10 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6">
-                Everything your campus needs, in three simple steps
+                Everything your classroom needs, in three simple steps
               </h2>
               <p className="text-gray-600 mb-10 max-w-2xl">
-                Launch your digital campus in minutes. Import courses, invite
+                Launch your digital classroom in minutes. Import courses, invite
                 your community, and stay connected with a unified hub for
                 lectures, resources, and feedback.
               </p>
@@ -229,7 +229,7 @@ export default function Home() {
                 href="/register"
                 className="mt-8 inline-flex items-center justify-center rounded-md bg-blue-600 px-5 py-3 text-white hover:bg-blue-700 transition"
               >
-                Start building your campus
+                Start building your classroom
               </Link>
             </div>
           </div>
@@ -240,10 +240,10 @@ export default function Home() {
         <div className="mx-auto w-full max-w-6xl px-4">
           <div className="text-center mb-12">
             <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">
-              Trusted by campus teams
+              Trusted by classroom teams
             </p>
             <h2 className="text-3xl font-bold mt-2">
-              Real stories from Campus connect users
+              Real stories from WebClassroom users
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -262,7 +262,7 @@ export default function Home() {
               },
               {
                 quote:
-                  "Switching to Campus connect reduced admin time and kept everyone aligned.",
+                  "Switching to WebClassroom reduced admin time and kept everyone aligned.",
                 name: "Chioma Nwankwo",
                 role: "Faculty Administrator",
               },
@@ -289,8 +289,7 @@ export default function Home() {
             Ready to enhance your educational journey?
           </h2>
           <p className="text-xl mb-14 max-w-2xl mx-auto">
-            Join thousands of students and lecturers already using Campus
-            connect to streamline their educational experience.
+            Join thousands of students and lecturers already using WebClassroom to streamline their educational experience.
           </p>
           <Link
             href="/register"

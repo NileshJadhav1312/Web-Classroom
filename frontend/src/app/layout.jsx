@@ -9,9 +9,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Campus connect - Learning Management System",
+  title: "WebClassroom - Learning Management System",
   description:
-    "A platform for students and lecturers to connect and share course materials",
+    "A digital classroom for students and lecturers to connect and share course materials",
 };
 
 export default function RootLayout({ children }) {

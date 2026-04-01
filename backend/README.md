@@ -1,4 +1,4 @@
-# Learning Management System API
+# WebClassroom API
 
 A RESTful API for a Learning Management System built with Node.js, Express, and MongoDB.
 
